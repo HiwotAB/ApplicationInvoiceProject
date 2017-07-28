@@ -23,7 +23,7 @@ public class InvoiceMainApplication {
 		double totalAmounts=0.0;
 		boolean toContinue=true;
 		String selContinue;
-		
+		double totTax=0.0;
 		
 		System.out.println("Thank you for ordering products with us.");
 		System.out.println("The list of items you purchased is below: ");
@@ -34,9 +34,9 @@ public class InvoiceMainApplication {
 			ArrayList<Product> productList=new ArrayList<Product>();
 					
 			Product product=new Product();			
-			scan.nextLine();
+			
 			System.out.println("Enter Product Description:");
-			product.setProductName(scan.nextLine());
+			product.setProductName(scan.next());
 			System.out.println("Enter Product Price:");
 			product.setProductPrice(scan.nextDouble());
 			System.out.println("Enter Product Tax Rate:");
@@ -48,6 +48,7 @@ public class InvoiceMainApplication {
 			productList.add(product);
 			
 			tax=product.getProductPrice()*product.getTaxRate();//Calculate price by tax rate and store value to tax variable 
+			totTax+=tax;
 			totalAmounts+=product.getProductPrice()+tax;	// Calculate price and add tax to get the total amount of the product	
 			
 		
@@ -59,7 +60,7 @@ public class InvoiceMainApplication {
 			}
 			
 			System.out.println("Would you like to enter more Product Item(y/n)");				
-			selContinue=scan.nextLine();
+			selContinue=scan.next();
 			if(selContinue.equalsIgnoreCase("y"))
 			{
 				toContinue=true;
@@ -68,10 +69,10 @@ public class InvoiceMainApplication {
 			{
 				toContinue=false;				
 				for(Product item:productList) {					
-					
+			
 				System.out.println("Item Name: "+item.getProductName());
 				System.out.println("Tax Rate: "+item.getTaxRate());
-				System.out.println("Tax Charged: "+tax);
+				System.out.println("Tax Charged: "+totTax);
 				System.out.println("Total Amount Due:"+totalAmounts);
 				}
 			}
