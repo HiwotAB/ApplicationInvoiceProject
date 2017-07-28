@@ -1,0 +1,18 @@
+README.md
+input                                                     processing                                                                      output                                               
+                                                                                                                                            		Prompt to the user to input Product Description.  
+ Get Product description -from user (String productName)                                                                                                                                        
+                                                           Received and store the Product description on productName String variable                                                            
+                                                                                                                                           Prompt to the user to input Product Price.           
+ Get Product Price -from user (Double productPrice)                                                                                                                                             
+                                                           Received and store the Product Price on productPrice Double variable                                                                 
+                                                                                                                                           Prompt to the user to input Tax Rate.                
+ Get Tax rate -from user (Double taxRate)                                                                                                                                                       
+                                                           Received and store the Tax amount on taxRate Double variable                                                                         
+                                                                                                                                           Prompt user to enter more Products                   
+ If the user wants more product item(yes)                                                                                                                                                       
+                                                           Received and store the ProductName,ProductPrice and Tax amount variable again                                                        
+ If user chooses no                                                                                                                                                                             
+                                                           Add the price of the each Product item to the total amount                                                                           
+                                                           Apply tax rate to total amount (tax rate * total amount)                                                                             
+                                                                                                                                           Display total amount(double totalAmount)             
