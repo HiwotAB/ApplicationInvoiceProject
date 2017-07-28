@@ -25,22 +25,35 @@ public class InvoiceMainApplication {
 		String selContinue;
 		double totTax=0.0;
 		
+		String productName; 
+		double productPrice; 
+		double taxRate;
+		
 		System.out.println("Thank you for ordering products with us.");
 		System.out.println("The list of items you purchased is below: ");
 		
+		//Declare an array list variable and Initialize the array list  and type of array list that is class
+		ArrayList<Product> productList=new ArrayList<Product>();
+		
 		do{
 
-			//Declare an array list variable and Initialize the array list  and type of array list that is class
-			ArrayList<Product> productList=new ArrayList<Product>();
+		
 					
 			Product product=new Product();			
 			
 			System.out.println("Enter Product Description:");
-			product.setProductName(scan.next());
+			productName=scan.nextLine();
+			product.setProductName(productName);
+			
 			System.out.println("Enter Product Price:");
-			product.setProductPrice(scan.nextDouble());
+			productPrice=scan.nextDouble();
+			product.setProductPrice(productPrice);
+			
+			
 			System.out.println("Enter Product Tax Rate:");
-			product.setTaxRate(scan.nextDouble());		
+			taxRate=scan.nextDouble();
+			product.setTaxRate(taxRate);
+			
 			
 			
 			
@@ -58,9 +71,9 @@ public class InvoiceMainApplication {
 				System.out.println(item.toString());
 				
 			}
-			
+			scan.nextLine();
 			System.out.println("Would you like to enter more Product Item(y/n)");				
-			selContinue=scan.next();
+			selContinue=scan.nextLine();
 			if(selContinue.equalsIgnoreCase("y"))
 			{
 				toContinue=true;
@@ -68,16 +81,17 @@ public class InvoiceMainApplication {
 			else
 			{
 				toContinue=false;				
-				for(Product item:productList) {					
-			
-				System.out.println("Item Name: "+item.getProductName());
-				System.out.println("Tax Rate: "+item.getTaxRate());
+				
+				for(Product item:productList) {							
+						
+					System.out.println("Item Name: "+item.getProductName());
+				}
+				System.out.println("Tax Rate: "+product.getTaxRate());
 				System.out.println("Tax Charged: "+totTax);
 				System.out.println("Total Amount Due:"+totalAmounts);
-				}
 			}
-		}while(toContinue==true);
 			
+		}while(toContinue==true);
 		
 	}
 
